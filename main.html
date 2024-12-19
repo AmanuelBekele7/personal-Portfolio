@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+   <title>Personal Portfolio</title>
+
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 50px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .hero {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            padding: 50px;
+            background-color: #fff;
+            border-radius: 10px;
+            margin: 20px auto;
+            width: 80%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero img {
+            width: 100%;
+            max-width: 250px;
+            height: auto;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        .hero-text {
+            max-width: 50%;
+            text-align: center;
+        }
+
+        .hero-text h1 {
+            font-size: 36px;
+            color: #6a1b9a;
+            margin-right: 200px;
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            margin-top: 10px;
+            margin-right: 200px;
+        }
+
+        .background-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #c471ed, #f64f59);
+            opacity: 0.3;
+        }
+
+        .circle-top-left {
+            width: 200px;
+            height: 200px;
+            top: 0;
+            left: -100px;
+        }
+
+        .circle-bottom-right {
+            width: 300px;
+            height: 300px;
+            bottom: 0;
+            right: -150px;
+        }
+
+        .circle-top-left, .circle-bottom-right {
+            position: fixed;
+        }
+      .about-section {
+    padding: 50px 20px;
+    background-color: #f9f9f9;
+    color: #333;
+    text-align: center;
+}
+
+.about-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-container h2 {
+    font-size: 36px;
+    color: #6a1b9a;
+    margin-bottom: 20px;
+}
+
+.about-container h3 {
+    font-size: 24px;
+    margin-top: 30px;
+    color: #444;
+}
+
+.about-container p, .about-container ul {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.skills-list {
+    list-style: none;
+    padding: 0;
+}
+
+.skills-list li {
+    background-color: #eaeaea;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+.services-section {
+    padding: 50px 20px;
+    background-color: #fff;
+    text-align: center;
+    color: #333;
+}
+
+.services-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.services-section h2 {
+    font-size: 36px;
+    color: #6a1b9a;
+    margin-bottom: 30px;
+}
+
+.service-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.service-card {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.service-card i {
+    font-size: 40px;
+    color: #6a1b9a;
+    margin-bottom: 10px;
+}
+
+.service-card h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #444;
+}
+
+.service-card p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #555;
+}
+
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul {
+                flex-direction: column;
+                margin-top: 10px;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .hero {
+                flex-direction: column;
+                padding: 20px;
+            }
+
+            .hero-text h1 {
+                font-size: 28px;
+            }
+
+            .hero-text p {
+                font-size: 16px;
+            }
+        }
+        .portfolio-section {
+    padding: 80px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+    color: #333;
+}
+
+.portfolio-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.portfolio-section h2 {
+    font-size: 36px;
+    color: #6a1b9a;
+    margin-bottom: 30px;
+}
+
+.project-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.project-card {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.project-card img {
+    width: 100%; /* Reduce the width to 80% of the container */
+    height: auto; /* Automatically adjust the height to maintain aspect ratio */
+    object-fit: cover; /* Ensure the image is cropped properly if necessary */
+    border-radius: 5px; /* Maintain rounded corners */
+    margin: 0 auto 10px; /* Center the image and add spacing below it */
+    display: block; /* Ensure the image is treated as a block element */
+}
+
+
+.project-card h3 {
+    font-size: 20px;
+    color: #444;
+    margin-bottom: 10px;
+}
+
+.project-card p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+    color: #333; /* Increased contrast */
+}
+
+.project-card a {
+    color: #6a1b9a;
+    text-decoration: none;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.project-card a:hover {
+    text-decoration: underline;
+}
+
+.project-card a:focus {
+    outline: 2px dashed #6a1b9a;
+    outline-offset: 4px;
+}
+#contact {
+  padding: 2rem;
+  background: #f9f9f9;
+}
+
+#contact h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+#contact ul {
+  list-style: none;
+  padding: 0;
+}
+
+#contact ul li {
+  margin: 0.5rem 0;
+}
+
+#contact form {
+  margin-top: 1rem;
+}
+
+#contact form label {
+  display: block;
+  margin: 0.5rem 0 0.2rem;
+  font-weight: bold;
+}
+
+#contact form input,
+#contact form textarea {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#contact form button {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  background-color: #007BFF;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+#contact form button:hover {
+  background-color: #0056b3;
+}
+
+/* Additional spacing for smaller screens */
+@media (max-width: 768px) {
+    .project-cards {
+        gap: 30px;
+    }
+}
+
+
+        @media (max-width: 480px) {
+            .hero {
+                width: 90%;
+            }
+
+            .hero-text h1 {
+                font-size: 24px;
+            }
+
+            .hero-text p {
+                font-size: 14px;
+            }
+        }
+    </style>
+
+</head>
+<body>
+    <div class="background-circle circle-top-left"></div>
+    <div class="background-circle circle-bottom-right"></div>
+
+    <header>
+        <div class="logo">Amanuel Bekele</div>
+   <nav>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+
+    </header>
+
+    <section class="hero">
+        <img src="geme profile.jpg" alt="Amanuel Bekele">
+        <div class="hero-text">
+            <h1>Hello!</h1>
+            <p>I'm Amanuel, Software Engineer.</p> 
+            <p>Welcome to my personal website!</p>
+        </div>
+    </section>
+   <section id="about" class="about-section">
+    <div class="about-container">
+        <h2>About Me</h2>
+        <p>Hello! My name is Amanuel Bekele. I am a passionate Software Engineer with expertise in building dynamic and responsive web applications. I strive to deliver clean, efficient, and user-friendly solutions.</p>
+        
+        <h3>Skills</h3>
+        <ul class="skills-list">
+            <li>HTML, CSS, JavaScript, Jquery</li>
+            <li>Python, Django, Flask</li>
+            <li>React.js, Node.js, Redux, TypeScript</li>
+            <li>Database Management (SQL, MySQL, MongoDB)</li>
+            <li>Version Control systems like Git, GitHub</li>
+            <li>Designing tools, Figma, Adope photoshop</li>
+            <li>Problem-Solving & Team Collaboration</li>
+        </ul>
+        
+        <h3>Experience</h3>
+        <p>Worked on several frontend, backend projects, including e-commerce platforms, content management systems, and personal portfolio websites.</p>
+
+        <h3>Education</h3>
+        <p>I'm learning Software Engineering at ALX Africa.</p>
+
+        <h3>Interests</h3>
+        <p>When I’m not coding, I enjoy playing chess, watching football, reading tech blogs, and exploring new technologies.</p>
+    </div>
+</section>
+<section id="services" class="services-section">
+    <div class="services-container">
+        <h2>Services</h2>
+        <div class="service-cards">
+            <div class="service-card">
+                <i class="fas fa-laptop-code"></i>
+                <h3>Web Development</h3>
+                <p>Creating modern, responsive, and user-friendly websites tailored to your needs.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-server"></i>
+                <h3>Backend Development</h3>
+                <p>Building robust and scalable server-side applications using Python, Node.js, and more.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>Mobile App Development</h3>
+                <p>Designing cross-platform mobile apps with seamless user experiences.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-code"></i>
+                <h3>API Development</h3>
+                <p>Creating secure and efficient RESTful APIs for web and mobile applications.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-search"></i>
+                <h3>SEO Optimization</h3>
+                <p>Improving your website's visibility and search engine ranking with proven techniques.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="portfolio" class="portfolio-section">
+    <div class="portfolio-container">
+        <h2>Portfolio</h2>
+        <div class="project-cards">
+            <div class="project-card">
+                <img src="love-calculator.png" alt="Love Calculator">
+                <h3>Love Calculator</h3>
+                <p>A fun application that calculates compatibility between two names using a custom algorithm.</p>
+                 | 
+                <a href="https://github.com/AmanuelBekele7" target="_blank" rel="noopener noreferrer">My GitHub</a>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+  <h2>Contact Me</h2>
+  <p>Feel free to reach out via the form below or through my email.</p>
+  <ul>
+    <li><strong>Email:</strong> <a href="mailto:sefsda71@gmail.com">My emails.com</a></li>
+    <li><strong>Phone:</strong> +251939322619</li>
+    <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/manuelbekele/" target="_blank" rel="noopener noreferrer">My LinkedIn</a></li>
+    <li><strong>GitHub:</strong> <a href="https://github.com/AmanuelBekele7" target="_blank" rel="noopener noreferrer">My GitHub</a></li>
+  </ul>
+  <form id="contact-form">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required placeholder="Your Name">
+    
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required placeholder="Your Email">
+    
+    <label for="message">Message:</label>
+    <textarea id="message" name="message" rows="5" required placeholder="Your Message"></textarea>
+    
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+    <script>
+
+      document.querySelector('a[href="#home"]').addEventListener('click', function(event) {
+      event.preventDefault(); // Prevent default behavior
+      const aboutSection = document.querySelector('#home');
+      aboutSection.scrollIntoView({ behavior: 'smooth' }); // Smooth scrolling
+});
+        
+      document.querySelector('a[href="#about"]').addEventListener('click', function(event) {
+      event.preventDefault(); // Prevent default behavior
+      const aboutSection = document.querySelector('#about');
+      aboutSection.scrollIntoView({ behavior: 'smooth' }); // Smooth scrolling
+});
+    document.querySelector('a[href="#services"]').addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent default behavior
+    const servicesSection = document.querySelector('#services');
+    servicesSection.scrollIntoView({ behavior: 'smooth' }); // Smooth scrolling
+});
+
+document.querySelector('a[href="#portfolio"]').addEventListener('click', function(event) {
+    event.preventDefault();
+    const portfolioSection = document.querySelector('#portfolio');
+    portfolioSection.scrollIntoView({ behavior: 'smooth' });
+});
+
+document.getElementById("contact-form").addEventListener("submit", function (e) {
+  e.preventDefault();
+  
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const message = document.getElementById("message").value.trim();
+  
+  if (!name || !email || !message) {
+    alert("Please fill in all fields.");
+    return;
+  }
+  
+  alert("Message sent! Thank you for reaching out.");
+  
+  this.reset(); // Clear form fields
+});
+
+
+    </script>
+</body>
+</html>
